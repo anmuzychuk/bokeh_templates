@@ -16,3 +16,7 @@ Thumbs.db
 # Private Information
 .private
 .gitconfig
+
+
+bokeh_templates.egg-info/*
+build/*

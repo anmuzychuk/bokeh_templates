@@ -15,4 +15,3 @@ Templates
 ---------
 
 **Box Plot**  - Inspired by [box-plot example](https://bokeh.pydata.org/en/latest/docs/gallery/boxplot.html) from bokeh gallery.
-
