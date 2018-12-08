@@ -1,0 +1,1 @@
+from bokeh_templates.templates.box_plot import BoxPlotFigure
