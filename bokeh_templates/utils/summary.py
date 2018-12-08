@@ -74,9 +74,9 @@ class Summary:
         dx = pandas.DataFrame({
             "category": category_value,
             "min": [numpy.min(x)],
-            "q1": [numpy.quantile(x, 0.25)],
-            "median": [numpy.quantile(x, 0.5)],
-            "q3": [numpy.quantile(x, 0.75)],
+            "q1": [numpy.percentile(x, 25)],
+            "median": [numpy.percentile(x, 50)],
+            "q3": [numpy.percentile(x, 75)],
             "max": [numpy.max(x)]
         })
 
