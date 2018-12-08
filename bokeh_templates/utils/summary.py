@@ -4,8 +4,8 @@ in a way useful to create box-plot.
 
 """
 
-import numpy as np
-import pandas as pd
+import numpy
+import pandas
 
 
 class Summary:
@@ -40,7 +40,7 @@ class Summary:
                                   category_value=name,
                                   k=self._k)
               for name, dfx in groups]
-        dx = pd.concat(dx)
+        dx = pandas.concat(dx)
         dx.rename(columns={"category": self.key}, inplace=True)
         return dx
 
@@ -49,9 +49,9 @@ class Summary:
         # if not self.summary:
         #     self.summary = self.summarize()
 
-        dx = pd.merge(self.df[[self.key, self.xval]],
-                      self.summary_table[[self.key, 'upper', 'lower']],
-                      how="left", on=self.key)
+        dx = pandas.merge(self.df[[self.key, self.xval]],
+                          self.summary_table[[self.key, 'upper', 'lower']],
+                          how="left", on=self.key)
         outlier_ids = (dx[self.xval] > dx['upper']) | ((dx[self.xval] < dx['lower']))
         return dx[outlier_ids]
 
@@ -71,13 +71,13 @@ class Summary:
         """
 
         # base summary
-        dx = pd.DataFrame({
+        dx = pandas.DataFrame({
             "category": category_value,
-            "min": [np.min(x)],
-            "q1": [np.quantile(x, 0.25)],
-            "median": [np.quantile(x, 0.5)],
-            "q3": [np.quantile(x, 0.75)],
-            "max": [np.max(x)]
+            "min": [numpy.min(x)],
+            "q1": [numpy.quantile(x, 0.25)],
+            "median": [numpy.quantile(x, 0.5)],
+            "q3": [numpy.quantile(x, 0.75)],
+            "max": [numpy.max(x)]
         })
 
         dx['iqr'] = dx['q3'] - dx['q1']
